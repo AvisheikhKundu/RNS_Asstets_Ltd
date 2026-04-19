@@ -1,6 +1,148 @@
 // ====================================
-// NAVIGATION & HAMBURGER MENU
+// TESTIMONIAL CAROUSEL
 // ====================================
+
+let currentTestimonial = 0;
+const testimonialCards = document.querySelectorAll('.testimonial-card');
+const totalTestimonials = testimonialCards.length;
+
+function showTestimonial(index) {
+    // Remove active class from all cards
+    testimonialCards.forEach(card => card.classList.remove('active'));
+
+    // Add active class to current card
+    if (testimonialCards[index]) {
+        testimonialCards[index].classList.add('active');
+    }
+
+    // Update indicators
+    updateIndicators(index);
+}
+
+function nextTestimonial() {
+    currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+    showTestimonial(currentTestimonial);
+}
+
+function prevTestimonial() {
+    currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+    showTestimonial(currentTestimonial);
+}
+
+function updateIndicators(index) {
+    const indicators = document.querySelectorAll('.indicator');
+    indicators.forEach((indicator, i) => {
+        indicator.classList.toggle('active', i === index);
+    });
+}
+
+// Initialize testimonial carousel
+function initTestimonialCarousel() {
+    if (testimonialCards.length === 0) return;
+
+    const container = document.getElementById('testimonialIndicators');
+    if (!container) return;
+
+    // Create indicators
+    for (let i = 0; i < totalTestimonials; i++) {
+        const indicator = document.createElement('div');
+        indicator.className = 'indicator' + (i === 0 ? ' active' : '');
+        indicator.onclick = () => {
+            currentTestimonial = i;
+            showTestimonial(i);
+        };
+        container.appendChild(indicator);
+    }
+
+    // Show first testimonial
+    showTestimonial(0);
+}
+
+// Auto-advance testimonials every 5 seconds
+setInterval(() => {
+    if (document.querySelector('.testimonial-card')) {
+        nextTestimonial();
+    }
+}, 5000);
+
+window.addEventListener('load', initTestimonialCarousel);
+document.addEventListener('DOMContentLoaded', initTestimonialCarousel);
+
+
+
+// ====================================
+// PROPERTY CAROUSEL
+// ====================================
+
+let currentProperty = 0;
+const propertyCards = document.querySelectorAll('.properties-carousel .property-card');
+const totalProperties = propertyCards.length;
+
+function showProperty(index) {
+    // Remove active class from all cards
+    propertyCards.forEach(card => card.classList.remove('active'));
+
+    // Add active class to current card
+    if (propertyCards[index]) {
+        propertyCards[index].classList.add('active');
+    }
+
+    // Update indicators
+    updatePropertyIndicators(index);
+}
+
+function nextProperty() {
+    currentProperty = (currentProperty + 1) % totalProperties;
+    showProperty(currentProperty);
+}
+
+function prevProperty() {
+    currentProperty = (currentProperty - 1 + totalProperties) % totalProperties;
+    showProperty(currentProperty);
+}
+
+function updatePropertyIndicators(index) {
+    const indicators = document.querySelectorAll('#propertyIndicators .indicator');
+    indicators.forEach((indicator, i) => {
+        indicator.classList.toggle('active', i === index);
+    });
+}
+
+// Initialize property carousel
+function initPropertyCarousel() {
+    if (propertyCards.length === 0) return;
+
+    const container = document.getElementById('propertyIndicators');
+    if (!container) return;
+
+    // Create indicators
+    for (let i = 0; i < totalProperties; i++) {
+        const indicator = document.createElement('div');
+        indicator.className = 'indicator' + (i === 0 ? ' active' : '');
+        indicator.onclick = () => {
+            currentProperty = i;
+            showProperty(i);
+        };
+        container.appendChild(indicator);
+    }
+
+    // Show first property
+    showProperty(0);
+}
+
+// Auto-advance properties every 6 seconds
+setInterval(() => {
+    if (document.querySelector('.properties-carousel')) {
+        nextProperty();
+    }
+}, 6000);
+
+window.addEventListener('load', initPropertyCarousel);
+document.addEventListener('DOMContentLoaded', initPropertyCarousel);
+
+
+
+
 
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
@@ -21,6 +163,14 @@ if (navMenu) {
         });
     });
 }
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navMenu?.classList.contains('active') && !e.target.closest('.navbar')) {
+        hamburger?.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+});
 
 // ====================================
 // FAQ ACCORDION

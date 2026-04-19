@@ -88,15 +88,20 @@ button {
     letter-spacing: 1px;
 }
 
-.logo h1::after {
-    content: '';
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background-color: var(--accent);
-    border-radius: 50%;
-    margin-left: 0.5rem;
-    vertical-align: middle;
+.logo {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.logo:hover {
+    color: var(--accent);
+}
+
+.logo:hover h1 {
+    color: var(--accent);
 }
 
 .nav-menu {
@@ -293,10 +298,53 @@ button {
     color: var(--text-secondary);
 }
 
-.properties-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+.properties-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.properties-carousel {
+    display: flex;
     gap: 2rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    flex: 1;
+    position: relative;
+}
+
+.property-card {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.property-card.active {
+    opacity: 1;
+    position: relative;
+    min-width: 100%;
+    left: auto;
+}
+
+.property-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.property-card:hover {
+    transform: translateY(-15px);
+    border-color: var(--accent);
+    box-shadow: 0 30px 60px rgba(201, 169, 110, 0.3);
 }
 
 .property-card {
@@ -315,8 +363,8 @@ button {
 
 .property-image {
     position: relative;
-    height: 280px;
-    background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+    height: 350px;
+    background: linear-gradient(135deg, rgba(201, 169, 110, 0.1), rgba(201, 169, 110, 0.05));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -324,27 +372,36 @@ button {
 }
 
 .image-placeholder {
-    font-size: 4rem;
-    opacity: 0.8;
+    font-size: 6rem;
+    opacity: 0.9;
     transition: var(--transition);
 }
 
 .property-card:hover .image-placeholder {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(5deg);
+}
+    font-size: 6rem;
+    opacity: 0.9;
+    transition: var(--transition);
+}
+
+.property-card:hover .image-placeholder {
+    transform: scale(1.15) rotate(5deg);
 }
 
 .property-badge {
     position: absolute;
-    top: 1rem;
-    left: 1rem;
+    top: 1.5rem;
+    left: 1.5rem;
     background-color: var(--accent);
     color: var(--primary-bg);
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 50px;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    box-shadow: 0 5px 15px rgba(201, 169, 110, 0.3);
 }
 
 .property-badge.new {
@@ -352,43 +409,50 @@ button {
 }
 
 .property-info {
-    padding: 1.5rem;
+    padding: 2rem;
 }
 
 .property-info h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
     color: var(--text-primary);
 }
 
 .location {
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: 1rem;
     margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .property-details {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
     text-align: center;
+}
+
+.property-details span {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
 .property-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
 .price {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--accent);
 }
@@ -396,7 +460,18 @@ button {
 .view-btn {
     color: var(--accent);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    transition: var(--transition);
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--accent);
+    border-radius: 50px;
+}
+
+.view-btn:hover {
+    background-color: var(--accent);
+    color: var(--primary-bg);
+    transform: translateX(5px);
+}
     transition: var(--transition);
 }
 
@@ -473,6 +548,66 @@ button {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
+}
+
+.testimonials-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.carousel-btn {
+    background-color: var(--accent);
+    color: var(--primary-bg);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background-color: var(--accent-hover);
+    transform: scale(1.1);
+}
+
+.testimonials-carousel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    flex: 1;
+}
+
+.testimonial-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+}
+
+.testimonial-card.active {
+    opacity: 1;
+    position: relative;
+    min-width: 100%;
+    left: auto;
+}
+
+.testimonials-carousel {
+    position: relative;
+    overflow: visible;
 }
 
 .testimonial-card {
@@ -721,6 +856,36 @@ button {
    RESPONSIVE DESIGN
    ==================================== */
 
+/* Large Tablets & Small Desktops */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .search-bar {
+        gap: 0.75rem;
+    }
+
+    .properties-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonials-wrapper {
+        gap: 1rem;
+    }
+
+    .carousel-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
@@ -728,6 +893,10 @@ button {
 
     .hamburger {
         display: flex;
+    }
+
+    .hero {
+        padding: 60px 0 40px;
     }
 
     .hero-title {
@@ -740,24 +909,74 @@ button {
 
     .search-bar {
         flex-direction: column;
+        padding: 1rem;
     }
 
     .search-bar input,
     .search-bar select,
     .search-bar button {
         width: 100%;
+        padding: 0.7rem;
     }
 
     .section-header h2 {
         font-size: 1.8rem;
     }
 
+    .section-header p {
+        font-size: 0.95rem;
+    }
+
     .cta-section h2 {
         font-size: 1.5rem;
     }
 
+    .cta-section p {
+        font-size: 1rem;
+    }
+
     .properties-grid {
         grid-template-columns: 1fr;
+    }
+
+    .properties-wrapper {
+        gap: 0.5rem;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .property-card {
+        padding: 1.5rem;
+    }
+
+    .property-indicators {
+        margin-top: 1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials-wrapper {
+        gap: 0.5rem;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+
+    .testimonial-indicators {
+        margin-top: 1rem;
     }
 
     .floating-cta {
@@ -770,38 +989,263 @@ button {
         height: 50px;
         font-size: 1.2rem;
     }
+
+    .primary-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .secondary-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+    }
 }
 
+/* Mobile Devices */
 @media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
     .hero {
-        min-height: 80vh;
-        padding: 80px 0 60px;
+        min-height: 70vh;
+        padding: 60px 0 40px;
     }
 
     .hero-title {
         font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+
+    .search-bar input,
+    .search-bar select,
+    .search-bar button {
+        width: 100%;
+        padding: 0.6rem;
+        font-size: 0.9rem;
     }
 
     .section-header h2 {
         font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-header p {
+        font-size: 0.9rem;
+    }
+
+    .properties-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .properties-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .property-card {
+        margin-bottom: 0;
+        min-width: 100%;
+    }
+
+    .property-image {
+        height: 200px;
+    }
+
+    .property-indicators {
+        margin-top: 1rem;
     }
 
     .features-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .feature-icon {
+        font-size: 2rem;
+        width: 50px;
+        height: 50px;
+    }
+
+    .testimonials-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    .testimonial-card {
+        padding: 1.2rem;
+        min-width: 100%;
+    }
+
+    .testimonial-card.active {
+        min-width: 100%;
+    }
+
+    .stars {
+        font-size: 0.9rem;
+        letter-spacing: 0px;
+    }
+
+    .testimonial-card p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .client-info h4 {
+        font-size: 0.95rem;
+    }
+
+    .client-info p {
+        font-size: 0.85rem;
+    }
+
+    .cta-section {
+        padding: 60px 0;
+    }
+
+    .cta-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .cta-section p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cta-buttons {
+        gap: 0.75rem;
+    }
+
+    .faq-container {
+        max-width: 100%;
+    }
+
+    .faq-item {
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .faq-question {
+        font-size: 0.95rem;
+    }
+
+    .faq-answer {
+        font-size: 0.9rem;
     }
 
     .nav-wrapper {
-        gap: 1rem;
+        gap: 0.5rem;
+        flex-wrap: wrap;
     }
 
     .primary-btn {
         padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .secondary-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .floating-cta {
+        bottom: 15px;
+        right: 15px;
+        gap: 0.75rem;
+    }
+
+    .floating-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .footer-col h3,
+    .footer-col h4 {
+        font-size: 1rem;
+    }
+
+    .footer-col p {
         font-size: 0.9rem;
     }
 }
 
-/* Animations */
-@keyframes slideInUp {
+/* Extra Small Devices */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.3rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .search-bar button {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .primary-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .floating-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+.testimonial-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.indicator.active {
+    background-color: var(--accent);
+    width: 30px;
+    border-radius: 5px;
+}
     from {
         opacity: 0;
         transform: translateY(30px);

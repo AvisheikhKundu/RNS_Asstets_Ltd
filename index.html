@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RNS Asset Ltd. - Premium Real Estate Bangladesh</title>
+    <title>RNS Assets Ltd. - Premium Real Estate Bangladesh</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -14,9 +14,9 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-wrapper">
-                <div class="logo">
-                    <h1>RNS Asset</h1>
-                </div>
+                <a href="index.html" class="logo">
+                    <h1>RNS Assets Ltd.</h1>
+                </a>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="properties.html">Properties</a></li>
@@ -73,68 +73,133 @@
                 <p>Handpicked premium properties for discerning investors</p>
             </div>
 
-            <div class="properties-grid">
-                <div class="property-card">
-                    <div class="property-image">
-                        <div class="image-placeholder">🏢</div>
-                        <span class="property-badge">Featured</span>
-                    </div>
-                    <div class="property-info">
-                        <h3>Luxury Apartment - Gulshan</h3>
-                        <p class="location">📍 Gulshan, Dhaka</p>
-                        <div class="property-details">
-                            <span>3 BED</span>
-                            <span>2.5 BATH</span>
-                            <span>2,500 SQ FT</span>
+            <div class="properties-wrapper">
+                <button class="carousel-btn prev-btn" onclick="prevProperty()">❮</button>
+
+                <div class="properties-carousel">
+                    <div class="property-card active">
+                        <div class="property-image">
+                            <div class="image-placeholder">🏢</div>
+                            <span class="property-badge">Featured</span>
                         </div>
-                        <div class="property-footer">
-                            <p class="price">৳ 2.5 Crore</p>
-                            <a href="property-detail.html?id=1" class="view-btn">View Details →</a>
+                        <div class="property-info">
+                            <h3>Luxury Apartment - Gulshan</h3>
+                            <p class="location">📍 Gulshan, Dhaka</p>
+                            <div class="property-details">
+                                <span>3 BED</span>
+                                <span>2.5 BATH</span>
+                                <span>2,500 SQ FT</span>
+                            </div>
+                            <div class="property-footer">
+                                <p class="price">৳ 2.5 Crore</p>
+                                <a href="property-detail.html?id=1" class="view-btn">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-card">
+                        <div class="property-image">
+                            <div class="image-placeholder">🏡</div>
+                            <span class="property-badge new">New</span>
+                        </div>
+                        <div class="property-info">
+                            <h3>Modern Villa - Baridhara</h3>
+                            <p class="location">📍 Baridhara, Dhaka</p>
+                            <div class="property-details">
+                                <span>4 BED</span>
+                                <span>3 BATH</span>
+                                <span>4,500 SQ FT</span>
+                            </div>
+                            <div class="property-footer">
+                                <p class="price">৳ 4.2 Crore</p>
+                                <a href="property-detail.html?id=2" class="view-btn">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-card">
+                        <div class="property-image">
+                            <div class="image-placeholder">🏪</div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Premium Commercial Space</h3>
+                            <p class="location">📍 Banani, Dhaka</p>
+                            <div class="property-details">
+                                <span>OFFICE</span>
+                                <span>GROUND FLOOR</span>
+                                <span>3,000 SQ FT</span>
+                            </div>
+                            <div class="property-footer">
+                                <p class="price">৳ 1.8 Crore</p>
+                                <a href="property-detail.html?id=3" class="view-btn">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-card">
+                        <div class="property-image">
+                            <div class="image-placeholder">🏘️</div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Twin Plot - Mirpur</h3>
+                            <p class="location">📍 Mirpur, Dhaka</p>
+                            <div class="property-details">
+                                <span>LAND</span>
+                                <span>DUAL PLOT</span>
+                                <span>6,000 SQ FT</span>
+                            </div>
+                            <div class="property-footer">
+                                <p class="price">৳ 3.5 Crore</p>
+                                <a href="property-detail.html?id=4" class="view-btn">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-card">
+                        <div class="property-image">
+                            <div class="image-placeholder">🏬</div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Penthouse Suite - Dhanmondi</h3>
+                            <p class="location">📍 Dhanmondi, Dhaka</p>
+                            <div class="property-details">
+                                <span>2 BED</span>
+                                <span>2 BATH</span>
+                                <span>1,800 SQ FT</span>
+                            </div>
+                            <div class="property-footer">
+                                <p class="price">৳ 1.9 Crore</p>
+                                <a href="property-detail.html?id=5" class="view-btn">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-card">
+                        <div class="property-image">
+                            <div class="image-placeholder">🏠</div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Family Home - Banasree</h3>
+                            <p class="location">📍 Banasree, Dhaka</p>
+                            <div class="property-details">
+                                <span>5 BED</span>
+                                <span>4 BATH</span>
+                                <span>5,000 SQ FT</span>
+                            </div>
+                            <div class="property-footer">
+                                <p class="price">৳ 3.8 Crore</p>
+                                <a href="property-detail.html?id=6" class="view-btn">View Details →</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="property-card">
-                    <div class="property-image">
-                        <div class="image-placeholder">🏡</div>
-                        <span class="property-badge new">New</span>
-                    </div>
-                    <div class="property-info">
-                        <h3>Modern Villa - Baridhara</h3>
-                        <p class="location">📍 Baridhara, Dhaka</p>
-                        <div class="property-details">
-                            <span>4 BED</span>
-                            <span>3 BATH</span>
-                            <span>4,500 SQ FT</span>
-                        </div>
-                        <div class="property-footer">
-                            <p class="price">৳ 4.2 Crore</p>
-                            <a href="property-detail.html?id=2" class="view-btn">View Details →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="property-card">
-                    <div class="property-image">
-                        <div class="image-placeholder">🏪</div>
-                    </div>
-                    <div class="property-info">
-                        <h3>Premium Commercial Space</h3>
-                        <p class="location">📍 Banani, Dhaka</p>
-                        <div class="property-details">
-                            <span>OFFICE</span>
-                            <span>GROUND FLOOR</span>
-                            <span>3,000 SQ FT</span>
-                        </div>
-                        <div class="property-footer">
-                            <p class="price">৳ 1.8 Crore</p>
-                            <a href="property-detail.html?id=3" class="view-btn">View Details →</a>
-                        </div>
-                    </div>
-                </div>
+                <button class="carousel-btn next-btn" onclick="nextProperty()">❯</button>
             </div>
 
-            <div style="text-align: center; margin-top: 3rem;">
+            <div class="property-indicators" id="propertyIndicators"></div>
+
+            <div style="text-align: center; margin-top: 2rem;">
                 <a href="properties.html" class="cta-button primary-btn">View All Properties</a>
             </div>
         </div>
@@ -144,7 +209,7 @@
     <section class="why-choose-section">
         <div class="container">
             <div class="section-header">
-                <h2>Why Choose RNS Asset?</h2>
+                <h2>Why Choose RNS Assets Ltd.?</h2>
                 <p>Trusted by thousands of satisfied investors and homeowners</p>
             </div>
 
@@ -196,34 +261,87 @@
                 <p>What our satisfied clients say about us</p>
             </div>
 
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"RNS Asset provided exceptional service from start to finish. The property exceeded all our expectations!"</p>
-                    <div class="client-info">
-                        <h4>Ahmed Hassan</h4>
-                        <p>Gulshan Apartment Owner</p>
+            <div class="testimonials-wrapper">
+                <button class="carousel-btn prev-btn" onclick="prevTestimonial()">❮</button>
+
+                <div class="testimonials-carousel">
+                    <div class="testimonial-card active">
+                        <div class="stars">★★★★★</div>
+                        <p>"RNS Assets Ltd. provided exceptional service from start to finish. The property exceeded all our expectations!"</p>
+                        <div class="client-info">
+                            <h4>Ahmed Hassan</h4>
+                            <p>Gulshan Apartment Owner</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Professional, transparent, and truly customer-focused. Would highly recommend RNS Assets Ltd. to anyone."</p>
+                        <div class="client-info">
+                            <h4>Fatima Khan</h4>
+                            <p>Baridhara Villa Investor</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"The team's expertise and attention to detail made our investment journey smooth and rewarding."</p>
+                        <div class="client-info">
+                            <h4>Rajesh Kumar</h4>
+                            <p>Commercial Space Tenant</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Excellent customer service! They guided us through every step of the buying process. Highly satisfied!"</p>
+                        <div class="client-info">
+                            <h4>Priya Singh</h4>
+                            <p>Dhanmondi Penthouse Owner</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Best investment decision we made. RNS Assets Ltd. delivered quality and value beyond expectations."</p>
+                        <div class="client-info">
+                            <h4>Mohammad Iqbal</h4>
+                            <p>Mirpur Property Investor</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Transparent pricing, no hidden charges, and exceptional after-sales support. Truly professional!"</p>
+                        <div class="client-info">
+                            <h4>Nasrin Begum</h4>
+                            <p>Banani Commercial Space Leaseholder</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"The interior design consultation added so much value. Our home looks absolutely stunning now!"</p>
+                        <div class="client-info">
+                            <h4>Karim Abdullah</h4>
+                            <p>Gulshan Apartment Resident</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"From viewing to handover, everything was seamless. RNS Assets Ltd. is the gold standard in real estate."</p>
+                        <div class="client-info">
+                            <h4>Shumaiya Afroz</h4>
+                            <p>Baridhara Villa Resident</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Professional, transparent, and truly customer-focused. Would highly recommend RNS Asset to anyone."</p>
-                    <div class="client-info">
-                        <h4>Fatima Khan</h4>
-                        <p>Baridhara Villa Investor</p>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"The team's expertise and attention to detail made our investment journey smooth and rewarding."</p>
-                    <div class="client-info">
-                        <h4>Rajesh Kumar</h4>
-                        <p>Commercial Space Tenant</p>
-                    </div>
-                </div>
+                <button class="carousel-btn next-btn" onclick="nextTestimonial()">❯</button>
             </div>
+
+            <div class="testimonial-indicators" id="testimonialIndicators"></div>
         </div>
     </section>
 
@@ -285,7 +403,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>RNS Asset Ltd.</h3>
+                    <h3>RNS Assets Ltd.</h3>
                     <p>Bangladesh's leading premium real estate developer, committed to delivering excellence.</p>
                 </div>
 
@@ -318,7 +436,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 RNS Asset Ltd. All rights reserved.</p>
+                <p>&copy; 2024 RNS Assets Ltd. All rights reserved.</p>
             </div>
         </div>
     </footer>
