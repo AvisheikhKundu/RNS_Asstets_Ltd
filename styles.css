@@ -377,17 +377,19 @@ button {
     transition: var(--transition);
 }
 
-.property-card:hover .image-placeholder {
-    transform: scale(1.15) rotate(5deg);
-}
-    font-size: 6rem;
-    opacity: 0.9;
+.property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
     transition: var(--transition);
 }
 
-.property-card:hover .image-placeholder {
+.property-card:hover .image-placeholder,
+.property-card:hover .property-image img {
     transform: scale(1.15) rotate(5deg);
 }
+
 
 .property-badge {
     position: absolute;
