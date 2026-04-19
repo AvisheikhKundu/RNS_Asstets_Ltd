@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - RNS Asset Ltd.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .tab-btn:hover {
+            color: var(--accent);
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 50px rgba(201, 169, 110, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .project-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .status-ongoing {
+            background-color: #FF9800;
+            color: white;
+        }
+
+        .status-completed {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .status-upcoming {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .project-location {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1rem;
+        }
+
+        .detail-item {
+            text-align: center;
+        }
+
+        .detail-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-value {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-footer {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .tab-content.active {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                gap: 0.5rem;
+            }
+
+            .tab-btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo"><h1>RNS Asset</h1></div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="cta-button primary-btn">📞 +880 1XXX XXXXX</button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section style="background-color: var(--secondary-bg); padding: 80px 0;">
+        <div class="container">
+            <h2 class="page-title">Our Projects</h2>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="ongoing">🚀 Ongoing</button>
+                <button class="tab-btn" data-tab="completed">✅ Completed</button>
+                <button class="tab-btn" data-tab="upcoming">⏰ Upcoming</button>
+            </div>
+
+            <!-- Ongoing Projects -->
+            <div class="tab-content active" id="ongoing">
+                <div class="project-card">
+                    <div class="project-image">
+                        🏗️
+                        <span class="project-status status-ongoing">In Progress</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Skyline Heights - Gulshan</h3>
+                        <p class="project-location">📍 Gulshan Avenue, Dhaka</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Units</div>
+                                <div class="detail-value">120</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Completion</div>
+                                <div class="detail-value">Q3 2025</div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Luxurious residential tower featuring modern apartments with premium finishes, state-of-the-art amenities, and panoramic city views. Currently 65% complete with structural work finished.
+                        </p>
+                        <a href="contact.html" class="cta-button primary-btn" style="width: 100%; text-align: center;">Invest Now</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        🏢
+                        <span class="project-status status-ongoing">In Progress</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Commerce Plaza - Banani</h3>
+                        <p class="project-location">📍 Banani Commercial Zone, Dhaka</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Space</div>
+                                <div class="detail-value">50K SQ FT</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Completion</div>
+                                <div class="detail-value">Q4 2025</div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Premium commercial complex with modern office spaces, retail units, and food court. Perfect for businesses seeking prime location in Banani.
+                        </p>
+                        <a href="contact.html" class="cta-button primary-btn" style="width: 100%; text-align: center;">Get Office Space</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        🏡
+                        <span class="project-status status-ongoing">In Progress</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Baridhara Residences - Villas</h3>
+                        <p class="project-location">📍 Baridhara, Dhaka</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Units</div>
+                                <div class="detail-value">45</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Completion</div>
+                                <div class="detail-value">Q2 2025</div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Gated villa community with spacious plots, landscaped gardens, and premium amenities. Designed for families seeking peaceful luxury living.
+                        </p>
+                        <a href="contact.html" class="cta-button primary-btn" style="width: 100%; text-align: center;">Book a Plot</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completed Projects -->
+            <div class="tab-content" id="completed">
+                <div class="project-card">
+                    <div class="project-image">
+                        🏆
+                        <span class="project-status status-completed">Completed</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Dhanmondi Towers - Phase 1</h3>
+                        <p class="project-location">📍 Dhanmondi, Dhaka</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Units</div>
+                                <div class="detail-value">200</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Completed</div>
+                                <div class="detail-value">2023</div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Landmark residential complex with 100% occupancy. Residents enjoy world-class amenities including pool, gym, and 24/7 security.
+                        </p>
+                        <button class="cta-button secondary-btn" style="width: 100%; text-align: center;">View Testimonials</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        🏪
+                        <span class="project-status status-completed">Completed</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Gulshan Market Complex</h3>
+                        <p class="project-location">📍 Gulshan, Dhaka</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Floors</div>
+                                <div class="detail-value">8</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Completed</div>
+                                <div class="detail-value">2023</div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Multi-use development featuring retail shops, offices, and restaurants. Highly sought after commercial location generating excellent returns.
+                        </p>
+                        <button class="cta-button secondary-btn" style="width: 100%; text-align: center;">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        🏠
+                        <span class="project-status status-completed">Completed</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Mirpur Garden Complex</h3>
+                        <p class="project-location">📍 Mirpur, Dhaka</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Units</div>
+                                <div class="detail-value">150</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Completed</div>
+                                <div class="detail-value">2022</div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Family-oriented residential project with lush green spaces, schools nearby, and excellent connectivity. Popular among young professionals.
+                        </p>
+                        <button class="cta-button secondary-btn" style="width: 100%; text-align: center;">Success Stories</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upcoming Projects -->
+            <div class="tab-content" id="upcoming">
+                <div class="project-card">
+                    <div class="project-image">
+                        🌆
+                        <span class="project-status status-upcoming">Launching</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Banasree Premium Villas</h3>
+                        <p class="project-location">📍 Banasree, Dhaka</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Units</div>
+                                <div class="detail-value">60</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Launch</div>
+                                <div class="detail-value">Q3 2024</div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Exclusive villa community with ultra-modern architecture, smart home features, and lush landscaping. Early bird offers available.
+                        </p>
+                        <a href="contact.html" class="cta-button primary-btn" style="width: 100%; text-align: center;">Pre-Launch Inquiry</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        🏬
+                        <span class="project-status status-upcoming">Launching</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Chattogram Riverside Development</h3>
+                        <p class="project-location">📍 Chattogram, Bangladesh</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Units</div>
+                                <div class="detail-value">300</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Launch</div>
+                                <div class="detail-value">Q4 2024</div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Large-scale development with residential and commercial spaces overlooking the river. Strategic location for business and lifestyle.
+                        </p>
+                        <a href="contact.html" class="cta-button primary-btn" style="width: 100%; text-align: center;">Express Interest</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        ⭐
+                        <span class="project-status status-upcoming">Planning</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Dhaka Central Business District</h3>
+                        <p class="project-location">📍 Kawran Bazar, Dhaka</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Space</div>
+                                <div class="detail-value">100K SQ FT</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Planning</div>
+                                <div class="detail-value">2025</div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Mega commercial complex planned for prime business district. State-of-the-art facilities for corporate headquarters and startups.
+                        </p>
+                        <button class="cta-button secondary-btn" style="width: 100%; text-align: center;">Notify Me</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>RNS Asset Ltd.</h3>
+                    <p>Bangladesh's leading premium real estate developer.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>📞 +880 1XXX XXXXXX</p>
+                    <p>📧 info@rnsasset.com</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RNS Asset Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-cta" id="floatingCta">
+        <a href="tel:+8801700000000" class="floating-btn call">📞</a>
+        <a href="https://wa.me/8801700000000" class="floating-btn whatsapp">💬</a>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tabName = this.dataset.tab;
+
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                this.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

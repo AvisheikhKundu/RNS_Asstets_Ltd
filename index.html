@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RNS Asset Ltd. - Premium Real Estate Bangladesh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>RNS Asset</h1>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="cta-button primary-btn">📞 +880 1XXX XXXXX</button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Discover Your Dream Property</h2>
+                <p class="hero-subtitle">Luxury real estate investments in Bangladesh's most premium locations</p>
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Search by location..." id="heroSearch">
+                    <select id="propertyType">
+                        <option value="">Property Type</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="villa">Villa</option>
+                        <option value="commercial">Commercial</option>
+                        <option value="land">Land</option>
+                    </select>
+                    <select id="priceRange">
+                        <option value="">Price Range</option>
+                        <option value="0-50">Under 50 Lakh</option>
+                        <option value="50-100">50-100 Lakh</option>
+                        <option value="100-200">100-200 Lakh</option>
+                        <option value="200+">200+ Lakh</option>
+                    </select>
+                    <button class="cta-button primary-btn">Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Properties</h2>
+                <p>Handpicked premium properties for discerning investors</p>
+            </div>
+
+            <div class="properties-grid">
+                <div class="property-card">
+                    <div class="property-image">
+                        <div class="image-placeholder">🏢</div>
+                        <span class="property-badge">Featured</span>
+                    </div>
+                    <div class="property-info">
+                        <h3>Luxury Apartment - Gulshan</h3>
+                        <p class="location">📍 Gulshan, Dhaka</p>
+                        <div class="property-details">
+                            <span>3 BED</span>
+                            <span>2.5 BATH</span>
+                            <span>2,500 SQ FT</span>
+                        </div>
+                        <div class="property-footer">
+                            <p class="price">৳ 2.5 Crore</p>
+                            <a href="property-detail.html?id=1" class="view-btn">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <div class="property-image">
+                        <div class="image-placeholder">🏡</div>
+                        <span class="property-badge new">New</span>
+                    </div>
+                    <div class="property-info">
+                        <h3>Modern Villa - Baridhara</h3>
+                        <p class="location">📍 Baridhara, Dhaka</p>
+                        <div class="property-details">
+                            <span>4 BED</span>
+                            <span>3 BATH</span>
+                            <span>4,500 SQ FT</span>
+                        </div>
+                        <div class="property-footer">
+                            <p class="price">৳ 4.2 Crore</p>
+                            <a href="property-detail.html?id=2" class="view-btn">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <div class="property-image">
+                        <div class="image-placeholder">🏪</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Premium Commercial Space</h3>
+                        <p class="location">📍 Banani, Dhaka</p>
+                        <div class="property-details">
+                            <span>OFFICE</span>
+                            <span>GROUND FLOOR</span>
+                            <span>3,000 SQ FT</span>
+                        </div>
+                        <div class="property-footer">
+                            <p class="price">৳ 1.8 Crore</p>
+                            <a href="property-detail.html?id=3" class="view-btn">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="properties.html" class="cta-button primary-btn">View All Properties</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose RNS Asset?</h2>
+                <p>Trusted by thousands of satisfied investors and homeowners</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>Verified Properties</h3>
+                    <p>Every property is thoroughly verified and authenticated for your peace of mind</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⏱</div>
+                    <h3>On-Time Delivery</h3>
+                    <p>We ensure projects are completed on schedule with premium quality standards</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Flexible Payment</h3>
+                    <p>Multiple payment options and flexible installment plans for your convenience</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Expert Team</h3>
+                    <p>Our experienced professionals guide you through every step of your journey</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Award-Winning</h3>
+                    <p>Recognized for excellence in real estate development and customer service</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Secure</h3>
+                    <p>Legal documentation and complete transparency in all transactions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Client Testimonials</h2>
+                <p>What our satisfied clients say about us</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"RNS Asset provided exceptional service from start to finish. The property exceeded all our expectations!"</p>
+                    <div class="client-info">
+                        <h4>Ahmed Hassan</h4>
+                        <p>Gulshan Apartment Owner</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Professional, transparent, and truly customer-focused. Would highly recommend RNS Asset to anyone."</p>
+                    <div class="client-info">
+                        <h4>Fatima Khan</h4>
+                        <p>Baridhara Villa Investor</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The team's expertise and attention to detail made our investment journey smooth and rewarding."</p>
+                    <div class="client-info">
+                        <h4>Rajesh Kumar</h4>
+                        <p>Commercial Space Tenant</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Find Your Dream Property?</h2>
+            <p>Start your real estate journey with Bangladesh's most trusted developer</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-button primary-btn">Book a Site Visit</a>
+                <a href="tel:+8801700000000" class="cta-button secondary-btn">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h3 class="faq-question">What is the down payment requirement?</h3>
+                    <p class="faq-answer">We offer flexible payment plans starting with as low as 10-20% down payment. The exact percentage depends on the property and project type. Contact our sales team for customized payment options.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">How long is the typical delivery timeline?</h3>
+                    <p class="faq-answer">Most projects are completed within 2-3 years from launch. We maintain a strict schedule and provide monthly updates to investors. Some premium properties are move-in ready within 6-12 months.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Are your properties legally verified?</h3>
+                    <p class="faq-answer">Yes, absolutely. All our properties undergo rigorous legal verification. We provide complete documentation including land title, architectural approvals, and utility connections.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What locations do you operate in?</h3>
+                    <p class="faq-answer">We primarily focus on premium locations in Dhaka including Gulshan, Baridhara, Banani, Dhanmondi, and Mirpur. We also have projects in Chattogram and Sylhet.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Do you offer property management services?</h3>
+                    <p class="faq-answer">Yes, we provide comprehensive property management services for investors. Our team handles maintenance, tenant management, and rent collection.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I get a site visit?</h3>
+                    <p class="faq-answer">Absolutely! We offer regular site visits and virtual tours. Visit our contact page or call us to schedule a visit at your convenience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>RNS Asset Ltd.</h3>
+                    <p>Bangladesh's leading premium real estate developer, committed to delivering excellence.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p>📞 +880 1XXX XXXXXX</p>
+                    <p>📧 info@rnsasset.com</p>
+                    <p>📍 Dhaka, Bangladesh</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 RNS Asset Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA for Mobile -->
+    <div class="floating-cta" id="floatingCta">
+        <a href="tel:+8801700000000" class="floating-btn call">📞</a>
+        <a href="https://wa.me/8801700000000" class="floating-btn whatsapp">💬</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

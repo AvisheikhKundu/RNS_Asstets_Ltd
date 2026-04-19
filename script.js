@@ -1,0 +1,173 @@
+// ====================================
+// NAVIGATION & HAMBURGER MENU
+// ====================================
+
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+}
+
+// Close menu when link is clicked
+if (navMenu) {
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger?.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+}
+
+// ====================================
+// FAQ ACCORDION
+// ====================================
+
+document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+        item.classList.toggle('active');
+
+        // Close other items
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('active');
+            }
+        });
+    });
+});
+
+// ====================================
+// SMOOTH SCROLL
+// ====================================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+});
+
+// ====================================
+// NAVIGATION HIGHLIGHT ON SCROLL
+// ====================================
+
+window.addEventListener('scroll', () => {
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    navLinks.forEach(link => {
+        const sectionId = link.getAttribute('href');
+        if (sectionId && sectionId !== '#') {
+            const section = document.querySelector(sectionId);
+            if (section) {
+                const sectionTop = section.offsetTop - 100;
+                const sectionBottom = sectionTop + section.offsetHeight;
+
+                if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            }
+        }
+    });
+});
+
+// ====================================
+// SCROLL ANIMATIONS
+// ====================================
+
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = `slideInUp 0.6s ease-out ${index * 0.1}s forwards`;
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.property-card, .feature-card, .testimonial-card').forEach(el => {
+    el.style.opacity = '0';
+    observer.observe(el);
+});
+
+// ====================================
+// PROPERTY SEARCH
+// ====================================
+
+const heroSearch = document.getElementById('heroSearch');
+const propertyType = document.getElementById('propertyType');
+const priceRange = document.getElementById('priceRange');
+
+if (heroSearch) {
+    heroSearch.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+}
+
+function performSearch() {
+    const location = heroSearch?.value || '';
+    const type = propertyType?.value || '';
+    const price = priceRange?.value || '';
+
+    // Redirect to properties page with query params
+    const params = new URLSearchParams();
+    if (location) params.append('location', location);
+    if (type) params.append('type', type);
+    if (price) params.append('price', price);
+
+    window.location.href = `properties.html?${params.toString()}`;
+}
+
+// ====================================
+// ACTIVE NAV LINK ON PAGE LOAD
+// ====================================
+
+window.addEventListener('load', () => {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+});
+
+// ====================================
+// MOBILE RESPONSIVE MENU
+// ====================================
+
+const mobileMenu = document.querySelector('.nav-menu');
+
+if (window.innerWidth <= 768) {
+    // Hide menu by default on mobile
+    if (mobileMenu) mobileMenu.style.display = 'none';
+}
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        if (mobileMenu) mobileMenu.style.display = 'flex';
+    } else {
+        if (mobileMenu && !hamburger?.classList.contains('active')) {
+            mobileMenu.style.display = 'none';
+        }
+    }
+});

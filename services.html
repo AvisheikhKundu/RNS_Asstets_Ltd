@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - RNS Asset Ltd.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .service-details {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        .service-details h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .service-details p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .service-details ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .service-details li {
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-details li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .portfolio-info {
+            padding: 1.5rem;
+        }
+
+        .portfolio-info h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo"><h1>RNS Asset</h1></div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="cta-button primary-btn">📞 +880 1XXX XXXXX</button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Hero -->
+    <section style="background-color: var(--secondary-bg); padding: 80px 0;">
+        <div class="container">
+            <h1 class="page-title">Our Services</h1>
+            <p class="section-subtitle">
+                Comprehensive real estate solutions tailored to meet every stage of your property journey.
+                From buying and selling to property management and consultation.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section style="background-color: var(--primary-bg); padding: 80px 0;">
+        <div class="container">
+            <!-- Service 1: Property Sales -->
+            <div class="service-details">
+                <h3>🏠 Property Sales & Acquisition</h3>
+                <p>
+                    Find your perfect property with our extensive database of premium listings across Dhaka and beyond.
+                    Our experienced team provides expert guidance throughout the entire buying process.
+                </p>
+                <h4 style="color: var(--text-primary); margin-top: 1.5rem;">What We Offer:</h4>
+                <ul>
+                    <li>Comprehensive property consultation</li>
+                    <li>Detailed market analysis and pricing</li>
+                    <li>Legal verification and documentation</li>
+                    <li>Flexible financing arrangements</li>
+                    <li>Post-purchase support and assistance</li>
+                </ul>
+            </div>
+
+            <!-- Service 2: Interior Design -->
+            <div class="service-details">
+                <h3>🎨 Interior Design & Customization</h3>
+                <p>
+                    Transform your property into your dream space with our professional interior design services.
+                    We combine aesthetics with functionality to create beautiful, livable environments.
+                </p>
+                <h4 style="color: var(--text-primary); margin-top: 1.5rem;">Design Services Include:</h4>
+                <ul>
+                    <li>Space planning and layout optimization</li>
+                    <li>3D visualization and rendering</li>
+                    <li>Material selection and procurement</li>
+                    <li>Furniture and decor consultation</li>
+                    <li>Project supervision and execution</li>
+                </ul>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">🛋️</div>
+                        <div class="portfolio-info">
+                            <h4>Modern Living Spaces</h4>
+                            <p>Contemporary design with luxury finishes</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">🛏️</div>
+                        <div class="portfolio-info">
+                            <h4>Bedroom Elegance</h4>
+                            <p>Comfortable and stylish bedroom designs</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">🍽️</div>
+                        <div class="portfolio-info">
+                            <h4>Kitchen Excellence</h4>
+                            <p>Functional and beautiful kitchen spaces</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3: Property Management -->
+            <div class="service-details">
+                <h3>🏢 Property Management Services</h3>
+                <p>
+                    Let us manage your properties while you enjoy the returns. Our comprehensive property management
+                    services ensure your investment is well-maintained and profitable.
+                </p>
+                <h4 style="color: var(--text-primary); margin-top: 1.5rem;">Management Includes:</h4>
+                <ul>
+                    <li>Tenant screening and management</li>
+                    <li>Rent collection and accounting</li>
+                    <li>Maintenance and repair coordination</li>
+                    <li>Regular property inspections</li>
+                    <li>Monthly financial reports</li>
+                    <li>Legal compliance and documentation</li>
+                </ul>
+            </div>
+
+            <!-- Service 4: Consultation -->
+            <div class="service-details">
+                <h3>📋 Real Estate Consultation</h3>
+                <p>
+                    Make informed decisions with expert consultation from our experienced real estate professionals.
+                    We provide personalized advice based on market trends and your specific needs.
+                </p>
+                <h4 style="color: var(--text-primary); margin-top: 1.5rem;">Consultation Services:</h4>
+                <ul>
+                    <li>Market analysis and trend reports</li>
+                    <li>Investment opportunity assessment</li>
+                    <li>Portfolio optimization strategies</li>
+                    <li>Risk assessment and mitigation</li>
+                    <li>Long-term wealth planning</li>
+                    <li>One-on-one expert meetings</li>
+                </ul>
+            </div>
+
+            <!-- Service 5: Legal & Documentation -->
+            <div class="service-details">
+                <h3>📜 Legal & Documentation Services</h3>
+                <p>
+                    Ensure complete legal compliance and peace of mind with our comprehensive legal documentation services.
+                    We handle all paperwork and ensure proper registration with relevant authorities.
+                </p>
+                <h4 style="color: var(--text-primary); margin-top: 1.5rem;">We Handle:</h4>
+                <ul>
+                    <li>Title verification and clearance</li>
+                    <li>Deed preparation and registration</li>
+                    <li>Property transfer documentation</li>
+                    <li>Tax and regulatory compliance</li>
+                    <li>Mortgage and financing documents</li>
+                    <li>Legal review and consultation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="background-color: var(--secondary-bg); padding: 80px 0; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Ready to Get Started?</h2>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Contact our team today to discuss your real estate needs and how we can help you achieve your goals.
+            </p>
+            <a href="contact.html" class="cta-button primary-btn" style="margin-right: 1rem;">📅 Schedule Consultation</a>
+            <a href="tel:+8801700000000" class="cta-button secondary-btn">📞 Call Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>RNS Asset Ltd.</h3>
+                    <p>Bangladesh's leading premium real estate developer.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>📞 +880 1XXX XXXXXX</p>
+                    <p>📧 info@rnsasset.com</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RNS Asset Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-cta" id="floatingCta">
+        <a href="tel:+8801700000000" class="floating-btn call">📞</a>
+        <a href="https://wa.me/8801700000000" class="floating-btn whatsapp">💬</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties - RNS Asset Ltd.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .properties-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            min-height: calc(100vh - 200px);
+        }
+
+        .sidebar {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-group h4 {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-group input[type="range"],
+        .filter-group input[type="checkbox"],
+        .filter-group select {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .filter-option input {
+            margin-right: 0.5rem;
+        }
+
+        .filter-option label {
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        .properties-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .properties-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo"><h1>RNS Asset</h1></div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html" class="active">Properties</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="cta-button primary-btn">📞 +880 1XXX XXXXX</button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section style="background-color: var(--secondary-bg); padding: 80px 0;">
+        <div class="container">
+            <h2 class="page-title">All Properties</h2>
+
+            <div class="properties-container">
+                <!-- Sidebar Filters -->
+                <aside class="sidebar">
+                    <div class="filter-group">
+                        <h4>Location</h4>
+                        <input type="text" placeholder="Search location..." style="padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background-color: var(--secondary-bg); color: var(--text-primary);">
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Property Type</h4>
+                        <div class="filter-option">
+                            <input type="checkbox" id="apartment">
+                            <label for="apartment">Apartment</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="villa">
+                            <label for="villa">Villa</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="commercial">
+                            <label for="commercial">Commercial</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="land">
+                            <label for="land">Land</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <input type="range" min="0" max="500" value="250" style="cursor: pointer;">
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">৳ 0 - 500 Lakh</p>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Bedrooms</h4>
+                        <div class="filter-option">
+                            <input type="checkbox" id="bed1">
+                            <label for="bed1">1 Bed</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="bed2">
+                            <label for="bed2">2 Beds</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="bed3">
+                            <label for="bed3">3+ Beds</label>
+                        </div>
+                    </div>
+
+                    <button class="primary-btn" style="width: 100%;">Apply Filters</button>
+                </aside>
+
+                <!-- Properties List -->
+                <div class="properties-list">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <div class="image-placeholder">🏢</div>
+                            <span class="property-badge">Featured</span>
+                        </div>
+                        <div class="property-info">
+                            <h3>Luxury Apartment - Gulshan</h3>
+                            <p class="location">📍 Gulshan, Dhaka</p>
+                            <div class="property-details">
+                                <span>3 BED</span>
+                                <span>2.5 BATH</span>
+                                <span>2,500 SQ FT</span>
+                            </div>
+                            <div class="property-footer">
+                                <p class="price">৳ 2.5 Crore</p>
+                                <a href="property-detail.html?id=1" class="view-btn">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-card">
+                        <div class="property-image">
+                            <div class="image-placeholder">🏡</div>
+                            <span class="property-badge new">New</span>
+                        </div>
+                        <div class="property-info">
+                            <h3>Modern Villa - Baridhara</h3>
+                            <p class="location">📍 Baridhara, Dhaka</p>
+                            <div class="property-details">
+                                <span>4 BED</span>
+                                <span>3 BATH</span>
+                                <span>4,500 SQ FT</span>
+                            </div>
+                            <div class="property-footer">
+                                <p class="price">৳ 4.2 Crore</p>
+                                <a href="property-detail.html?id=2" class="view-btn">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-card">
+                        <div class="property-image">
+                            <div class="image-placeholder">🏪</div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Premium Commercial Space</h3>
+                            <p class="location">📍 Banani, Dhaka</p>
+                            <div class="property-details">
+                                <span>OFFICE</span>
+                                <span>GROUND FLOOR</span>
+                                <span>3,000 SQ FT</span>
+                            </div>
+                            <div class="property-footer">
+                                <p class="price">৳ 1.8 Crore</p>
+                                <a href="property-detail.html?id=3" class="view-btn">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-card">
+                        <div class="property-image">
+                            <div class="image-placeholder">🏘️</div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Twin Plot - Mirpur</h3>
+                            <p class="location">📍 Mirpur, Dhaka</p>
+                            <div class="property-details">
+                                <span>LAND</span>
+                                <span>DUAL PLOT</span>
+                                <span>6,000 SQ FT</span>
+                            </div>
+                            <div class="property-footer">
+                                <p class="price">৳ 3.5 Crore</p>
+                                <a href="property-detail.html?id=4" class="view-btn">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-card">
+                        <div class="property-image">
+                            <div class="image-placeholder">🏬</div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Penthouse Suite - Dhanmondi</h3>
+                            <p class="location">📍 Dhanmondi, Dhaka</p>
+                            <div class="property-details">
+                                <span>2 BED</span>
+                                <span>2 BATH</span>
+                                <span>1,800 SQ FT</span>
+                            </div>
+                            <div class="property-footer">
+                                <p class="price">৳ 1.9 Crore</p>
+                                <a href="property-detail.html?id=5" class="view-btn">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-card">
+                        <div class="property-image">
+                            <div class="image-placeholder">🏠</div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Family Home - Banasree</h3>
+                            <p class="location">📍 Banasree, Dhaka</p>
+                            <div class="property-details">
+                                <span>5 BED</span>
+                                <span>4 BATH</span>
+                                <span>5,000 SQ FT</span>
+                            </div>
+                            <div class="property-footer">
+                                <p class="price">৳ 3.8 Crore</p>
+                                <a href="property-detail.html?id=6" class="view-btn">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>RNS Asset Ltd.</h3>
+                    <p>Bangladesh's leading premium real estate developer.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>📞 +880 1XXX XXXXXX</p>
+                    <p>📧 info@rnsasset.com</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RNS Asset Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-cta" id="floatingCta">
+        <a href="tel:+8801700000000" class="floating-btn call">📞</a>
+        <a href="https://wa.me/8801700000000" class="floating-btn whatsapp">💬</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
