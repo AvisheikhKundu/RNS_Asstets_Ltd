@@ -1,4 +1,53 @@
 // ====================================
+// THEME MANAGER (Dark/Light Mode)
+// ====================================
+
+const themeManager = {
+    init() {
+        // Load saved preference or default to dark mode
+        const saved = localStorage.getItem('theme-preference') || 'dark';
+        this.applyTheme(saved);
+        this.attachListeners();
+    },
+
+    toggleTheme() {
+        const current = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+        const newTheme = current === 'dark' ? 'light' : 'dark';
+        this.applyTheme(newTheme);
+        this.savePreference(newTheme);
+    },
+
+    applyTheme(theme) {
+        const isDark = theme === 'dark';
+        document.body.classList.toggle('light-mode', !isDark);
+        this.updateIcon(isDark);
+    },
+
+    updateIcon(isDark) {
+        const icon = document.querySelector('.theme-icon');
+        if (icon) {
+            icon.textContent = isDark ? '🌙' : '☀️';
+        }
+    },
+
+    savePreference(theme) {
+        localStorage.setItem('theme-preference', theme);
+    },
+
+    attachListeners() {
+        const btn = document.getElementById('themeToggle');
+        if (btn) {
+            btn.addEventListener('click', () => this.toggleTheme());
+        }
+    }
+};
+
+// Initialize theme manager when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    themeManager.init();
+});
+
+// ====================================
 // TESTIMONIAL CAROUSEL
 // ====================================
 

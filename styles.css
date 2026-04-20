@@ -6,14 +6,26 @@
 /* CSS Variables */
 :root {
     --primary-bg: #252525c6;
-    --secondary-bg: #121212;
+    --secondary-bg: #191818;
     --card-bg: #1A1A1A;
     --text-primary: #FFFFFF;
     --text-secondary: #B3B3B3;
-    --accent: #C9A96E;
-    --accent-hover: #D4B896;
+    --accent: #d9d262;
+    --accent-hover: #d2d496;
     --border-color: #2A2A2A;
     --transition: all 0.3s ease;
+}
+
+/* Light Mode Theme */
+body.light-mode {
+    --primary-bg: #FFFFFF;
+    --secondary-bg: #F5F5F5;
+    --card-bg: #FFFFFF;
+    --text-primary: #111111;
+    --text-secondary: #555555;
+    --accent: #C9A96E;
+    --accent-hover: #D4B896;
+    --border-color: #E0E0E0;
 }
 
 /* Reset & Base Styles */
@@ -237,6 +249,49 @@ button {
 
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* ====================================
+   THEME TOGGLE
+   ==================================== */
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-primary);
+    font-size: 20px;
+    padding: 0;
+    margin-right: 1rem;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    background-color: var(--accent);
+    color: #0B0B0B;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(201, 169, 110, 0.3);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+.theme-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+
+.theme-toggle:hover .theme-icon {
+    transform: rotate(20deg);
 }
 
 /* ====================================
