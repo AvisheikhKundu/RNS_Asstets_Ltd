@@ -146,29 +146,30 @@ document.addEventListener('DOMContentLoaded', initPropertyCarousel);
 
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
+const navMenuHidden = document.getElementById('navMenuHidden');
 
 if (hamburger) {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
+        navMenuHidden.classList.toggle('active');
     });
 }
 
 // Close menu when link is clicked
-if (navMenu) {
-    navMenu.querySelectorAll('a').forEach(link => {
+if (navMenuHidden) {
+    navMenuHidden.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             hamburger?.classList.remove('active');
-            navMenu.classList.remove('active');
+            navMenuHidden.classList.remove('active');
         });
     });
 }
 
 // Close menu when clicking outside
 document.addEventListener('click', (e) => {
-    if (navMenu?.classList.contains('active') && !e.target.closest('.navbar')) {
+    if (navMenuHidden?.classList.contains('active') && !e.target.closest('.navbar')) {
         hamburger?.classList.remove('active');
-        navMenu.classList.remove('active');
+        navMenuHidden.classList.remove('active');
     }
 });
 
@@ -306,18 +307,21 @@ window.addEventListener('load', () => {
 // ====================================
 
 const mobileMenu = document.querySelector('.nav-menu');
+const mobileMenuHidden = document.querySelector('.nav-menu-hidden');
 
 if (window.innerWidth <= 768) {
-    // Hide menu by default on mobile
     if (mobileMenu) mobileMenu.style.display = 'none';
+    if (mobileMenuHidden) mobileMenuHidden.style.display = 'none';
 }
 
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
         if (mobileMenu) mobileMenu.style.display = 'flex';
+        if (mobileMenuHidden) mobileMenuHidden.style.display = 'none';
     } else {
-        if (mobileMenu && !hamburger?.classList.contains('active')) {
-            mobileMenu.style.display = 'none';
+        if (mobileMenu) mobileMenu.style.display = 'none';
+        if (mobileMenuHidden && !hamburger?.classList.contains('active')) {
+            mobileMenuHidden.style.display = 'none';
         }
     }
 });
